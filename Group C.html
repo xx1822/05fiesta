@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05' FOOTBALL FIESTA 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Design.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-content">
+            <h1>05' FOOTBALL FIESTA 2025</h1>
+            <p>The Ultimate Football Showdown for SBP and MRSM Alumni</p>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav>
+            <ul class="menu">
+                <li><a href="05F.html">Home</a></li>
+                <li><a href="PICForm.html">Captain</a></li>
+                <li>
+                    <a href="Schedule.html">Schedule</a>
+                    <ul class="submenu">
+                        <li><a href="Group A.html">Group A</a></li>
+                        <li><a href="Group B.html">Group B</a></li>
+                        <li><a href="Group C.html">Group C</a></li>
+                        <li><a href="Group D.html">Group D</a></li>
+                    </ul>
+                </li>
+                <!--<li><a href="#contact">Contact</a></li>-->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Logo Section -->
+    <div class="logo-section">
+        <div class="organised-by">
+            <h3>TOURNAMENT LOGO:</h3>
+        </div>
+        <div class="tournament-logo">
+            <img src="LOGO1.png" alt="Tournament Logo">
+        </div>
+        <div class="organised-by">
+            <h3>ORGANISED BY:</h3>
+        </div>
+        <div class="organiser-logos">
+            <img src="LOGO2.png" alt="Organiser Logo 2">
+            <img src="LOGO3.png" alt="Organiser Logo 3">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="table1">
+            <div class="container3">
+                <h1>Standings - GROUP C</h1>
+                <table id="standings-table">
+                    <thead>
+                        <tr>
+                            <th>Team</th>
+                            <th>Match</th>
+                            <th>Win</th>
+                            <th>Draw</th>
+                            <th>Lose</th>
+                            <th>Goal for</th>
+                            <th>Goal against</th>
+                            <th>+/-</th>
+                            <th>Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data will be injected here -->
+                    </tbody>
+                </table>
+                <p id="error-message" style="color:red; display:none;">Failed to load standings. Please try again later.</p>
+            </div>
+        </div>
+    
+
+<script>
+  async function fetchStandings() {
+    try {
+      // Use the CORS proxy to fetch the CSV data
+      const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+      const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT6muIdiJFiW7FNUwDmQQ5yB9i0bTKJyVkC-tODigi8QTGnEmv9JCfSfKYSMr3mG_mxflvpKsf3qgJs/pub?output=csv';
+      
+      const response = await fetch(proxyUrl + sheetUrl);
+      const csvText = await response.text();
+      
+      // Log the raw CSV to check the format
+      console.log(csvText);
+
+      // Parse CSV data
+      const rows = csvText.split('\n').map(row => row.split(','));
+
+      // Log the parsed rows to inspect the data
+      console.log(rows);
+
+      const tableBody = document.querySelector('#standings-table tbody');
+      tableBody.innerHTML = '';  // Clear the table body
+
+      // Loop through each row of data and insert it into the table
+      rows.slice(1).forEach((row, index) => {
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+          <td>${row[0]}</td>
+          <td>${row[1]}</td>
+          <td>${row[2]}</td>
+          <td>${row[3]}</td>
+          <td>${row[4]}</td>
+          <td>${row[5]}</td>
+          <td>${row[6]}</td>
+          <td>${row[7]}</td>
+          <td>${row[8]}</td>
+        `;
+        tableBody.appendChild(newRow);
+      });
+    } catch (error) {
+      console.error('Error fetching standings:', error);
+    }
+  }
+
+  // Fetch data when page loads
+  fetchStandings();
+  setInterval(fetchStandings, 60000); // Update every 1 minute
+</script>
+
+<div class="table2">
+    <div class="container3">
+        <h1>Match Results</h1>
+        <table id="results-table">
+            <thead>
+                <tr>
+                    <th>Home</th>
+                    <th>Away</th>
+                    <th>Score</th>
+                    <th>vs</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be injected here -->
+            </tbody>
+        </table>
+</div>
+</div>
+</div>
+
+<script>
+  async function fetchMatchResults() {
+    try {
+      // Use the CORS proxy to fetch the CSV data
+      const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+      const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQIukGeml1enMiFw0oNsdBgU9HoyOgFM8yGyByOlDv9xgFkYxYjS06s6kNak-ZvfD6izpPLM9pnRxVP/pub?output=csv';
+      
+      const response = await fetch(proxyUrl + sheetUrl);
+      const csvText = await response.text();
+      
+      // Log the raw CSV to check the format
+      console.log(csvText);
+
+      // Parse CSV data
+      const rows = csvText.split('\n').map(row => row.split(','));
+
+      // Log the parsed rows to inspect the data
+      console.log(rows);
+
+      const tableBody = document.querySelector('#results-table tbody');
+      tableBody.innerHTML = '';  // Clear the table body
+
+      // Loop through each row of data and insert it into the table
+      rows.slice(1).forEach((row, index) => {
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+          <td>${row[0]}</td>
+          <td>${row[1]}</td>
+          <td>${row[2]}</td>
+          <td>${row[3]}</td>
+          <td>${row[4]}</td>
+        `;
+        tableBody.appendChild(newRow);
+      });
+    } catch (error) {
+      console.error('Error fetching match results:', error);
+    }
+  }
+
+  // Fetch data when page loads
+  fetchMatchResults();
+  setInterval(fetchMatchResults, 60000); // Update every 1 minute
+</script>
+
+
+</body>
+</html>

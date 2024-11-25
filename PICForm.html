@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05' FOOTBALL FIESTA 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Design.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-content">
+            <h1>05' FOOTBALL FIESTA 2025</h1>
+            <p>The Ultimate Football Showdown for SBP and MRSM Alumni</p>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav>
+            <ul class="menu">
+	<li><a href="05F.html">Home</a></li>
+                <li><a href="PICForm.html">Captain</a></li>
+                <li>
+	<a href="Schedule.html">Schedule</a>
+	<ul class="submenu">
+                    <li><a href="Group A.html">Group A</a></li>
+                    <li><a href="Group B.html">Group B</a></li>
+                    <li><a href="Group C.html">Group C</a></li>
+	    <li><a href="Group D.html">Group D</a></li>
+	</li>
+                </ul>
+                <!--<li><a href="#contact">Contact</a></li>-->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Logo Section -->
+    <div class="logo-section">
+        <div class="organised-by">
+            <h3>TOURNAMENT LOGO:</h3>
+        </div>
+        <div class="tournament-logo">
+            <img src="LOGO1.png" alt="Tournament Logo">
+        </div>
+        <div class="organised-by">
+            <h3>ORGANISED BY:</h3>
+        </div>
+        <div class="organiser-logos">
+            <img src="LOGO2.png" alt="Organiser Logo 2">
+            <img src="LOGO3.png" alt="Organiser Logo 3">
+        </div>
+    </div>
+
+    <!-- Contact Form Section -->
+    <div class="container">
+        <div class="contact">
+            <h2>Borang Maklumat Ketua Pasukan</h2>
+            <form id="captainForm">
+                <label for="date">Date:</label><br>
+                <input type="date" id="date" name="date" required><br><br>
+
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="phone">Phone Number:</label><br>
+                <input type="tel" id="phone" name="phone" placeholder="012-3456789" required><br><br>
+
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="school">School:</label><br>
+                <select id="school" name="school" required>
+                    <option value="">Select your school</option>
+                    <option value="SAMURA">SAMURA - SMS Muar</option>
+                    <option value="MOZAC">MOZAC - SMS Muzaffar Syah</option>
+                    <option value="SASER">SASER - SMS Tuanku Munawir</option>
+                    <option value="SDAR">SDAR - Sekolah Dato' Abdul Razak</option>
+                    <option value="SAS">SAS - Sekolah Sultan Alam Shah</option>
+                    <option value="ASIS">ASIS - SMS Sultan Alam Shah</option>
+                    <option value="SABDA">SABDA - SMS Bagan Datoh</option>
+                    <option value="IGOP">IGOP - SBPI Gopeng</option>
+                    <option value="MCKK">MCKK - Malay College Kuala Kangsar</option>
+                    <option value="STAR">STAR - Sekolah Tuanku Abdul Rahman</option>
+                    <option value="SUPERB">SUPERB - SMAP Bentong</option>
+                    <option value="SMSD">SMSD - SMS Dungun</option>
+                    <option value="RMC">RMC - Royal Military College</option>
+                    <option value="MRSM Felda Trolak">MRSM - Felda Trolak</option>
+                    <option value="MRSM Tun Ghafar Baba">MRSM - Tun Ghafar Baba</option>
+                    <option value="MRSM Gemencheh">MRSM - Gemencheh</option>
+                </select><br><br>
+
+                <input type="submit" value="Submit">
+            </form>
+	<p id="responseMessage" style="display:none; color:green;">Maklumat Telah Diterima</p>
+        </div>
+    </div>
+
+<script>
+document.getElementById("captainForm").addEventListener("submit", function(event){
+	event.preventDefault();
+
+	const form = event.target;
+	const formData = new FormData(form);
+
+	submitForm(formData);
+});
+
+function submitForm(formData) {
+	fetch("https://script.google.com/macros/s/AKfycbw5octYm_aM33KHb58vVq_exj4W6jC8T_qTCuL79UowZaQ38sySri4wazokJCo3F0ASSw/exec", { // Replace with your Google Apps Script URL
+		method: "POST",
+		body: new URLSearchParams(formData)
+	})
+	.then(response => response.text())
+	.then(data => {
+		if (data === "Success") {
+			document.getElementById("responseMessage").style.display = "block";
+			document.getElementById("captainForm").reset();
+		} else {
+			alert("Failed to submit. Please try again.");
+		}
+	})
+	.catch(error => console.error("Error:", error));
+}
+</script>
+
+</body>
+</html>

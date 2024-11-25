@@ -1,0 +1,475 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+}
+
+/* Header */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #0044cc;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 20px;
+    margin: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+.header-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 5px;
+}
+.header-content p {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+/* Logo Section */
+/* Logo Section */
+.logo-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap; /* Allows logos to wrap on smaller screens */
+}
+
+/* Tournament logo styling */
+.tournament-logo img {
+    width: 80px; /* Adjust as needed */
+    height: auto;
+}
+
+/* Organised by text styling */
+.organised-by h3 {
+    font-size: 1em;
+    margin: 0;
+    padding: 0 10px;
+    color: #ffcc00; /* Optional: Different color for "ORGANISED BY" */
+}
+
+/* Organiser logos section */
+.organiser-logos {
+    display: flex;
+    gap: 10px; /* Space between logos */
+}
+
+/* Organiser logo images */
+.organiser-logos img {
+    width: 60px; /* Adjust as needed */
+    height: auto;
+    border-radius: 5px; /* Optional: rounded corners for logos */
+}
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Schedule Section */
+.schedule {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.schedule h2 {
+    font-size: 2em;
+    color: #0044cc;
+    margin-bottom: 10px;
+}
+.schedule ul {
+    list-style-type: none;
+    padding: 10px;
+}
+.schedule ul li {
+    font-size: 1.1em;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Teams Section */
+.teams-section {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 20px auto; /* Centers the teams section */
+}
+.teams-section h2 {
+    font-size: 2em;
+    color: #0044cc;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.teams {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+.team {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    width: calc(33.333% - 10px);
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    flex: 1 1 calc(33.333% - 10px);
+}
+.team img {
+    width: 80px;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+.team h3 {
+    font-size: 1.2em;
+    color: #333;
+    margin-top: 5px;
+}
+.team p {
+    font-size: 1em;
+    color: #666;
+}
+
+/* Contact Section */
+.contact {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 20px auto; /* Centers the contact section */
+}
+.contact h2 {
+    font-size: 2em;
+    color: #0044cc;
+    margin-bottom: 10px;
+}
+.contact p {
+    font-size: 1.1em;
+}
+
+/* Footer */
+footer {
+    background-color: #0044cc;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+footer p {
+    font-size: 0.9em;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+    .team {
+        width: calc(50% - 10px);
+        flex: 1 1 calc(50% - 10px);
+    }
+    header h1 {
+        font-size: 2em;
+    }
+    header p,
+    .contact p,
+    .schedule ul li {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .team {
+        width: calc(100% - 10px);
+        flex: 1 1 calc(100% - 10px);
+    }
+    header h1 {
+        font-size: 1.8em;
+    }
+    header p,
+    .contact p,
+    .schedule ul li {
+        font-size: 0.9em;
+    }
+    .logo-section {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .tournament-logo img,
+    .organiser-logos img {
+        width: 50px; /* Smaller logo size for smaller screens */
+    }
+    .organised-by h3 {
+        font-size: 0.9em; /* Adjust font size if necessary */
+    }
+    .menu {
+        flex-direction: column;
+        align-items: center;
+    }
+    .table1, .table2 {
+        margin: 10px;
+    }
+
+    .container3 {
+        padding: 15px;
+    }
+
+    table {
+        width: 100%;
+        display: block;  /* Allow table to be scrollable horizontally */
+    }
+
+    th, td {
+        padding: 8px;  /* Adjust padding for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 15px;
+        margin: 10px;
+    }
+    .logo,
+    .container,
+    .schedule,
+    .teams-section,
+    .contact,
+    footer {
+        margin: 10px;
+        padding: 15px;
+    }
+    header h1 {
+        font-size: 1.5em;
+    }
+    header p,
+    .contact p,
+    .schedule ul li {
+        font-size: 0.8em;
+    }
+    /* Further reduce logo size on very small screens */
+    .tournament-logo img,
+    .organiser-logos img {
+        width: 40px; /* Further reduce size for very small screens */
+    }
+    .organised-by h3 {
+        font-size: 0.8em; /* Reduce font size */
+    }
+}
+
+/* Form and Input Styles */
+form {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 8px 0 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px; /* Rounded corners */
+    font-size: 1em;
+    outline: none;
+    transition: 0.3s;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #0044cc;
+    box-shadow: 0 0 8px rgba(0, 68, 204, 0.2);
+}
+
+/* Submit Button */
+input[type="submit"] {
+    background-color: #0044cc;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 20px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 1em;
+    transition: 0.3s;
+    width: 100%;
+    max-width: 200px;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: #003399;
+}
+
+/* Navigation Menu */
+nav {
+    margin-top: 10px;
+    background-color: #003399;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.menu li {
+    padding: 5px 15px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.menu li a:hover {
+    color: #ffcc00;
+}
+
+.menu > li {
+    position: relative;
+}
+
+.menu > li > a {
+    display: block;
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu > li:hover > a {
+    background-color: #555;
+}
+
+/* Submenu styling */
+.submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    background-color: #444;
+}
+
+.submenu li a {
+    padding: 10px 15px;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+}
+
+.submenu li a:hover {
+    background-color: #666;
+}
+
+/* Show the submenu when hovering over the parent item */
+.menu > li:hover .submenu {
+    display: block;
+}
+
+.table1 {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+.table2 {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+.container3 {
+      width: 100%;
+      max-width: 1200px;
+      display: column;
+      background-color: white;
+      padding: 20px;
+      border-radius: 13px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow-x: auto;
+    }
+
+.container h1, .container3 h1 {
+      text-align: center;
+      color: #0044cc;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      table-layout: fixed;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+      text-align: center;
+      padding: 10px;
+    }
+
+    th {
+      background-color: #0044cc;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
