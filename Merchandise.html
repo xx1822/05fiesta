@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05' FOOTBALL FIESTA 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="DesignMerchandise.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+    <div class="header-content">
+        <h1>05' FOOTBALL FIESTA 2025</h1>
+        <p>The Ultimate Football Showdown for SBP and MRSM Alumni</p>
+    </div>
+
+    <!-- Navigation Menu -->
+        <nav>
+            <ul class="menu">
+                <li><a href="05F.html">Home</a></li>
+                <li><a href="PICForm.html">Captain</a></li>
+                <li>
+                    <a href="Schedule.html">Schedule</a>
+                    <ul class="submenu">
+                        <li><a href="Group A.html">Group A</a></li>
+                        <li><a href="Group B.html">Group B</a></li>
+                        <li><a href="Group C.html">Group C</a></li>
+                        <li><a href="Group D.html">Group D</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Logo Section -->
+    <div class="logo-section">
+        <div class="organised-by">
+            <h3>TOURNAMENT LOGO:</h3>
+        </div>
+        <div class="tournament-logo">
+            <img src="LOGO1.png" alt="Tournament Logo">
+        </div>
+        <div class="organised-by">
+            <h3>ORGANISED BY:</h3>
+        </div>
+        <div class="organiser-logos">
+            <img src="LOGO2.png" alt="Organiser Logo 2">
+            <img src="LOGO3.png" alt="Organiser Logo 3">
+        </div>
+    </div>
+
+    <!-- Merchandise Section with QR Code Support -->
+    <section class="merchandise-section">
+        <div class="merchandise-title">
+            <h2>Merchandise Store</h2>
+            <p>Support the tournament by purchasing exclusive merchandise!</p>
+        </div>
+
+        <div class="center-item">
+            <div class="merchandise-item">
+                <img src="CS.jpg" alt="Merchandise Item 1">
+                <h3>05' FIESTA Kit</h3>
+                <p class="item-price">Price: RM 35.00</p>
+                <button onclick="openPurchaseForm('05\' FIESTA Kit', 35)">Buy Now</button>
+            </div>
+
+            <!--<div class="merchandise-item">
+                <img src="2.png" alt="Merchandise Item 2">
+                <h3>05' FIESTA Away</h3>
+                <p class="item-price">RM 30.00</p>
+                <button onclick="openPurchaseForm('05\' FIESTA Away', 30)">Buy Now</button>
+            </div>
+        </div>-->
+
+        <!-- Purchase Form with QR Code -->
+        <div class="purchase-form" id="purchaseForm" style="display: none;">
+            <h3>Purchase Form</h3>
+            <form id="purchaseFormData" onsubmit="submitForm(event)">
+                <label for="item_name">Your item:</label>
+                <input type="text" name="item_name" id="item_name" readonly required>
+
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="1" value="0" oninput="calculateTotal()" required>
+
+                <label for="item_price">TOTAL PRICE:</label>
+                <input type="text" name="item_price" id="item_price" value="RM 0.00" readonly>
+
+                <label for="item_size">Select your size:</label>
+                <select name="item_size" onchange="calculateTotal()" id="item_size" required>
+                    <option value="">Select your size</option>
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                    <option value="XXXL">XXXL (+RM 8.00)</option>
+                </select>
+
+                <label for="buyer_name">Your Name:</label>
+                <input type="text" id="buyer_name" name="buyer_name" required>
+
+                <label for="buyer_phone">Your Phone Number:</label>
+                <input type="phone" id="buyer_phone" name="buyer_phone" required>
+
+                <label for="receipt">Upload Payment Receipt:</label>
+                <input type="file" id="receipt" name="receipt" accept="image/*" required>
+
+                <!-- QR Code Section -->
+                <div class="qr-code-section">
+                    <h4>Scan QR for Bank Payment</h4>
+                    <img src="QR.jpg" alt="Bank QR Code" class="qr-code">
+                </div>
+	<div class="notice">
+	<p>Klik sekali sahaja, tunggu sehingga status pembelian dinyatakan</p>
+	</div>
+                <button type="submit" disabled>Confirm Purchase</button>
+                <button type="button" onclick="closePurchaseForm()">Cancel</button>
+            </form>
+            <p id="responseMessage" style="display:none; color:green;">Pembelian Telah Diterima</p>
+        </div>
+    </section>
+
+<!-- New Message Banner -->
+<div id="messageBanner" style="display:none; background-color: green; color: white; padding: 10px; text-align: center; position: fixed; top: 10px; width: 100%; z-index: 1000;">
+    <p id="responseMessage">Pembelian Telah Diterima</p>
+</div>
+
+
+<script>
+    function openPurchaseForm(itemName, itemPrice) {
+        document.getElementById('purchaseForm').style.display = 'block';
+        document.getElementById('item_name').value = itemName;
+        document.getElementById('item_price').value = "RM 0.00"; // Reset total price
+        document.getElementById('quantity').value = "0"; // Reset quantity
+        document.getElementById('item_size').selectedIndex = 0; // Reset size selection
+    }
+    
+    function closePurchaseForm() {
+        document.getElementById('purchaseForm').style.display = 'none';
+    }
+
+    function calculateTotal() {
+        const itemPrice = parseFloat(document.getElementById('item_name').value === "05' FIESTA Kit" ? 35 : 30);
+        const quantity = parseInt(document.getElementById('quantity').value) || 0;
+        const size = document.getElementById('item_size').value;
+        
+        let totalPrice = itemPrice * quantity;
+
+        // Add RM 8.00 if the size is XXXL
+        if (size === "XXXL") {
+            totalPrice += 8.00 * quantity;
+        }
+
+        document.getElementById('item_price').value = "RM " + totalPrice.toFixed(2);
+    }
+
+    function submitForm(event) {
+        event.preventDefault();  // Prevent the form from being submitted the default way
+
+        const formData = new FormData(document.getElementById('purchaseFormData'));
+        fetch("https://script.google.com/macros/s/AKfycbyQPLwrRq3Tqwo91biT52TYwuGu5Z_am60d_07x--68JY0pGSxmS_K8mn8X8P6Wvlx8/exec", {
+            method: "POST",
+            body: new URLSearchParams(formData)
+        })
+        .then(response => response.text())
+        .then(data => {
+            if (data === "Success") {
+                // Display success message in the banner
+                const banner = document.getElementById("messageBanner");
+                const responseMessage = document.getElementById("responseMessage");
+
+                // Show the message in the banner
+                banner.style.display = "block";
+                
+                // Optionally, hide the message after a few seconds
+                setTimeout(() => {
+                    banner.style.display = "none";  // Hide the banner
+                }, 5000);  // Message will disappear after 5 seconds
+
+                // Hide the form and reset it
+                document.getElementById("purchaseFormData").reset();
+                closePurchaseForm();
+            } else {
+                alert("Failed to submit. Please try again.");
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("An error occurred. Please try again.");
+        });
+    }
+</script>
+
+</body>
+</html>
