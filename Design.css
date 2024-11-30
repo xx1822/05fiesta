@@ -212,6 +212,10 @@ footer p {
     .schedule ul li {
         font-size: 1em;
     }
+    
+.crew {
+                width: calc(33.33% - 40px); /* Three cards per row on desktops */
+            }
 }
 
 @media (max-width: 768px) {
@@ -258,6 +262,10 @@ footer p {
     th, td {
         padding: 8px;  /* Adjust padding for smaller screens */
     }
+    
+    .crew {
+                width: calc(50% - 20px); /* Two cards per row on tablets */
+            }
 }
 
 @media (max-width: 480px) {
@@ -486,3 +494,32 @@ nav {
     tr:nth-child(even) {
       background-color: #f9f9f9;
     }
+   
+        .containercrew {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            overflow: hidden;
+            text-align: center;
+            width: 300px;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+        }
+        .card h2 {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        .card p {
+            font-size: 1em;
+            color: #666;
+            margin: 10px 0 20px;
+        }
