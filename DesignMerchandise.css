@@ -375,6 +375,7 @@ nav {
         font-size: 10px;
     }
     .merchandise-title h2 {
-        font-size: 1em;
+        font-size: 0.8em;
+        white-space: nowrap;
     }
 }
