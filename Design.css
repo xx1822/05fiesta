@@ -70,6 +70,7 @@ header {
     margin: 0;
     padding: 0 10px;
     color: #ffcc00; /* Optional: Different color for "ORGANISED BY" */
+    white-space: nowrap;
 }
 
 /* Organiser logos section */
