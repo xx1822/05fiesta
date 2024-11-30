@@ -20,6 +20,7 @@ body {
     background-color: #f4f4f9;
     color: #333;
     margin: 0;
+    animation: fadeIn 3s ease-in-out;
 }
 
 /* Header */
