@@ -6,6 +6,388 @@
     <title>05' FOOTBALL FIESTA 2025</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="DesignMerchandise.css">
+    <style>
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px):
+    }
+    to {
+        opacity: 1;
+        transform : translateY(0);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    animation: fadeIn 3s ease-in-out;
+}
+
+/* Header */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #0044cc;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 20px;
+    margin: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    
+}
+.header-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 5px;
+}
+.header-content p {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+/* Logo Section */
+/* Logo Section */
+.logo-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap; /* Allows logos to wrap on smaller screens */
+}
+
+/* Tournament logo styling */
+.tournament-logo img {
+    width: 80px; /* Adjust as needed */
+    height: auto;
+}
+
+/* Organised by text styling */
+.organised-by h3 {
+    font-size: 1em;
+    margin: 0;
+    padding: 0 10px;
+    color: #ffcc00; /* Optional: Different color for "ORGANISED BY" */
+}
+
+/* Organiser logos section */
+.organiser-logos {
+    display: flex;
+    gap: 10px; /* Space between logos */
+}
+
+/* Organiser logo images */
+.organiser-logos img {
+    width: 60px; /* Adjust as needed */
+    height: auto;
+    border-radius: 5px; /* Optional: rounded corners for logos */
+}
+
+/* Navigation Menu */
+nav {
+    margin-top: 10px;
+    background-color: #003399;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.menu li {
+    padding: 5px 15px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.menu li a:hover {
+    color: #ffcc00;
+}
+
+.menu > li {
+    position: relative;
+}
+
+.menu > li > a {
+    display: block;
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu > li:hover > a {
+    background-color: #555;
+}
+
+/* Submenu styling */
+.submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    background-color: #444;
+}
+
+.submenu li a {
+    padding: 10px 15px;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+}
+
+.submenu li a:hover {
+    background-color: #666;
+}
+
+/* Show the submenu when hovering over the parent item */
+.menu > li:hover .submenu {
+    display: block;
+}
+
+/* Merchandise Section */
+.merchandise-item {
+    display: inline-block;
+    width: 45%;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+.center-item {
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 20px;
+}
+
+.merchandise-title {
+    background-color: #ffffff;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #0044cc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    width: 90%;
+    margin: 20px auto; /* Centers the teams section */
+    padding: 20px;
+}
+
+.merchandise-title p {
+    font-size: 0.8em;
+}
+
+.merchandise-item img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+.merchandise-item h3 {
+    margin: 10px;
+    font-weight: bold;
+}
+
+.merchandise-item button {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.item-price {
+    margin: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.merchandise-item button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.merchandise-item button:hover {
+    background-color: #0056b3;
+}
+/* Purchase Form */
+.purchase-form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 400px;
+    max-height: 80vh;
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.purchase-form h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.purchase-form input, .purchase-form button, .purchase-form select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.purchase-form button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.purchase-form button[type="button"] {
+    background-color: #dc3545;
+}
+
+/* QR Code Section */
+.qr-code-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.qr-code-section h4 {
+    font-size: 16px;
+    color: #555;
+}
+
+.qr-code {
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
+}
+
+.notice {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+    .team {
+        width: calc(50% - 10px);
+        flex: 1 1 calc(50% - 10px);
+    }
+    header h1 {
+        font-size: 2em;
+    }
+    header p,
+    .contact p,
+    .schedule ul li {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+    header p,
+    .contact p,
+    .schedule ul li {
+        font-size: 0.9em;
+    }
+    .logo-section {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .tournament-logo img,
+    .organiser-logos img {
+        width: 50px; /* Smaller logo size for smaller screens */
+    }
+    .organised-by h3 {
+        font-size: 0.9em; /* Adjust font size if necessary */
+    }
+    .menu {
+        flex-direction: column;
+        align-items: center;
+    }
+    .merchandise-item {
+        width: 90%;
+        margin: 10px auto;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 15px;
+        margin: 10px;
+    }
+    footer {
+        margin: 10px;
+        padding: 15px;
+    }
+    header h1 {
+        font-size: 1.5em;
+    }
+    header p {
+        font-size: 0.8em;
+    }
+    /* Further reduce logo size on very small screens */
+    .tournament-logo img,
+    .organiser-logos img {
+        width: 40px; /* Further reduce size for very small screens */
+    }
+    .organised-by h3 {
+        font-size: 0.8em; /* Reduce font size */
+    }
+    .header-content h1 {
+        font-size: 24px;
+    }
+    .notice {
+        font-size: 10px;
+    }
+    .merchandise-title h2 {
+        font-size: 1.1em;
+        white-space: n owrap;
+    }
+}
+    </style>
 </head>
 <body>
 
@@ -93,7 +475,7 @@
                 <select name="item_size" onchange="calculateTotal()" id="item_size" required>
                     <option value="">Select your size</option>
                     <option value="XS">XS</option>
-                    <option value="S">S</option>
+<option value="S">S</option>
                     <option value="M">M</option>
                     <option value="L">L</option>
                     <option value="XL">XL</option>
@@ -115,9 +497,9 @@
                     <h4>Scan QR for Bank Payment</h4>
                     <img src="QR.jpg" alt="Bank QR Code" class="qr-code">
                 </div>
-	<div class="notice">
-	<p>Klik sekali sahaja, tunggu sehingga status pembelian dinyatakan</p>
-	</div>
+ <div class="notice">
+ <p>Klik sekali sahaja, tunggu sehingga status pembelian dinyatakan</p>
+ </div>
                 <button type="submit" disabled>Confirm Purchase</button>
                 <button type="button" onclick="closePurchaseForm()">Cancel</button>
             </form>
@@ -139,7 +521,7 @@
         document.getElementById('quantity').value = "0"; // Reset quantity
         document.getElementById('item_size').selectedIndex = 0; // Reset size selection
     }
-    
+
     function closePurchaseForm() {
         document.getElementById('purchaseForm').style.display = 'none';
     }
@@ -170,6 +552,9 @@
         .then(response => response.text())
         .then(data => {
             if (data === "Success") {
+                // Send the uploaded file to Telegram
+                sendToTelegram(formData.get('receipt'));
+
                 // Display success message in the banner
                 const banner = document.getElementById("messageBanner");
                 const responseMessage = document.getElementById("responseMessage");
@@ -192,6 +577,31 @@
         .catch(error => {
             console.error("Error:", error);
             alert("An error occurred. Please try again.");
+        });
+    }
+
+    function sendToTelegram(file) {
+        const botToken = '7628239798:AAH2q8OVeFOOTVsZAe3UERMnCtYzDvZPXF0';  // Replace with your Telegram Bot Token
+        const chatId = '-4556879746';  // Replace with the chat ID or group ID
+        const formData = new FormData();
+
+        formData.append('chat_id', chatId);
+        formData.append('document', file);
+
+        fetch(`https://api.telegram.org/bot${botToken}/sendDocument`, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.ok) {
+                console.log('File sent to Telegram successfully');
+            } else {
+                console.error('Failed to send file to Telegram');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
         });
     }
 </script>
