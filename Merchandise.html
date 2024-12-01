@@ -5,20 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>05' FOOTBALL FIESTA 2025</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="DesignMerchandise.css">
     <style>
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px):
-    }
-    to {
-        opacity: 1;
-        transform : translateY(0);
-    }
-}
-
-* {
+        * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -29,7 +17,6 @@ body {
     background-color: #f4f4f9;
     color: #333;
     margin: 0;
-    animation: fadeIn 3s ease-in-out;
 }
 
 /* Header */
@@ -45,7 +32,6 @@ header {
     margin: 20px;
     max-width: 1200px;
     margin: 20px auto;
-    
 }
 .header-content h1 {
     font-size: 2.5em;
@@ -197,7 +183,6 @@ nav {
     color: #0044cc;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 1200px;
-    width: 90%;
     margin: 20px auto; /* Centers the teams section */
     padding: 20px;
 }
@@ -240,6 +225,7 @@ nav {
 .merchandise-item button:hover {
     background-color: #0056b3;
 }
+
 /* Purchase Form */
 .purchase-form {
     display: none;
@@ -382,10 +368,6 @@ nav {
     .notice {
         font-size: 10px;
     }
-    .merchandise-title h2 {
-        font-size: 1.1em;
-        white-space: n owrap;
-    }
 }
     </style>
 </head>
@@ -412,8 +394,7 @@ nav {
                         <li><a href="Group D.html">Group D</a></li>
                     </ul>
                 </li>
-                <li><a href="Merchandise.html">Shop</a></li>
-                <li><a href="Crew.html">Crew</a></li>
+	<li><a href="Merchandise.html">Shop</a></li>
             </ul>
         </nav>
     </header>
@@ -475,7 +456,7 @@ nav {
                 <select name="item_size" onchange="calculateTotal()" id="item_size" required>
                     <option value="">Select your size</option>
                     <option value="XS">XS</option>
-<option value="S">S</option>
+                    <option value="S">S</option>
                     <option value="M">M</option>
                     <option value="L">L</option>
                     <option value="XL">XL</option>
@@ -497,10 +478,10 @@ nav {
                     <h4>Scan QR for Bank Payment</h4>
                     <img src="QR.jpg" alt="Bank QR Code" class="qr-code">
                 </div>
- <div class="notice">
- <p>Klik sekali sahaja, tunggu sehingga status pembelian dinyatakan</p>
- </div>
-                <button type="submit">Confirm Purchase</button>
+	<div class="notice">
+	<p>Klik sekali sahaja, tunggu sehingga status pembelian dinyatakan</p>
+	</div>
+                <button type="submit" disabled>Confirm Purchase</button>
                 <button type="button" onclick="closePurchaseForm()">Cancel</button>
             </form>
             <p id="responseMessage" style="display:none; color:green;">Pembelian Telah Diterima</p>
@@ -521,7 +502,7 @@ nav {
         document.getElementById('quantity').value = "0"; // Reset quantity
         document.getElementById('item_size').selectedIndex = 0; // Reset size selection
     }
-
+    
     function closePurchaseForm() {
         document.getElementById('purchaseForm').style.display = 'none';
     }
@@ -552,9 +533,6 @@ nav {
         .then(response => response.text())
         .then(data => {
             if (data === "Success") {
-                // Send the uploaded file to Telegram
-                <!--sendToTelegram(formData.get('receipt'));-->
-
                 // Display success message in the banner
                 const banner = document.getElementById("messageBanner");
                 const responseMessage = document.getElementById("responseMessage");
@@ -579,31 +557,6 @@ nav {
             alert("An error occurred. Please try again.");
         });
     }
-
-    <!--function sendToTelegram(file) {
-        const botToken = '7628239798:AAH2q8OVeFOOTVsZAe3UERMnCtYzDvZPXF0';  // Replace with your Telegram Bot Token
-        const chatId = '-4556879746';  // Replace with the chat ID or group ID
-        const formData = new FormData();
-
-        formData.append('chat_id', chatId);
-        formData.append('document', file);
-
-        fetch(`https://api.telegram.org/bot${botToken}/sendDocument`, {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.ok) {
-                console.log('File sent to Telegram successfully');
-            } else {
-                console.error('Failed to send file to Telegram');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-    }-->
 </script>
 
 </body>
