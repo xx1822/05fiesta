@@ -553,7 +553,7 @@ nav {
         .then(data => {
             if (data === "Success") {
                 // Send the uploaded file to Telegram
-                sendToTelegram(formData.get('receipt'));
+                <!--sendToTelegram(formData.get('receipt'));-->
 
                 // Display success message in the banner
                 const banner = document.getElementById("messageBanner");
@@ -580,7 +580,7 @@ nav {
         });
     }
 
-    function sendToTelegram(file) {
+    <!--function sendToTelegram(file) {
         const botToken = '7628239798:AAH2q8OVeFOOTVsZAe3UERMnCtYzDvZPXF0';  // Replace with your Telegram Bot Token
         const chatId = '-4556879746';  // Replace with the chat ID or group ID
         const formData = new FormData();
@@ -603,7 +603,7 @@ nav {
         .catch(error => {
             console.error('Error:', error);
         });
-    }
+    }-->
 </script>
 
 </body>
