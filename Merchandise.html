@@ -444,7 +444,7 @@ nav {
 
         <div class="center-item">
             <div class="merchandise-item">
-                <img src="JSY1.PNG" alt="Merchandise Item 1">
+                <img src="JSY1.png" alt="Merchandise Item 1">
                 <h3>05' FIESTA Kit</h3>
                 <p class="item-price">Price: RM 27.00</p>
                 <button onclick="openPurchaseForm('05\' FIESTA Kit', 27)">Buy Now</button>
@@ -527,7 +527,7 @@ nav {
     }
 
     function calculateTotal() {
-        const itemPrice = parseFloat(document.getElementById('item_name').value === "05' FIESTA Kit" ? 29 : 30);
+        const itemPrice = parseFloat(document.getElementById('item_name').value === "05' FIESTA Kit" ? 27 : 30);
         const quantity = parseInt(document.getElementById('quantity').value) || 0;
         const size = document.getElementById('item_size').value;
         
